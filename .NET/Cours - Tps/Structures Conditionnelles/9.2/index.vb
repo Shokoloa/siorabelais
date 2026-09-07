@@ -8,22 +8,22 @@ Module Module1
         Dim moyenne As Double
         Dim pourcentage As Double
 
-        Console.WriteLine("Note ? (entre 0 et 20, -1 pour sortir")
+        Console.WriteLine("Note ? (entre 0 et 20, -1 pour sortir)")
         note = Console.ReadLine()
 
         While note <> -1
-            If (note < 0 And note > 20) Then
+            If (note < 0 Or note > 20) Then
                 Console.WriteLine("La note doit être entre 0 et 20")
+            Else
+                somme = somme + note
+                nombreNotes = nombreNotes + 1
+
+                If note > 10 Then
+                    nombreSup10 = nombreSup10 + 1
+                End If
             End If
 
-            somme = somme + note
-            nombreNotes = nombreNotes + 1
-
-            If note > 10 Then
-                nombreSup10 = nombreSup10 + 1
-            End If
-
-            Console.WriteLine("Entrez une note (-1 pour fin) :")
+            Console.WriteLine("Note ? (entre 0 et 20, -1 pour sortir):")
             note = Console.ReadLine()
         End While
 
@@ -31,8 +31,9 @@ Module Module1
             moyenne = somme / nombreNotes
             pourcentage = (nombreSup10 * 100) / nombreNotes
 
-            Console.WriteLine("Vous avez " & pourcentage & " % de notes > à 10")
-            Console.WriteLine("Votre moyenne est de " & moyenne.ToString("0.00"))
+            Console.WriteLine("Somme : " + somme.ToString())
+            Console.WriteLine("Compteur : " + nombreNotes.ToString())
+            Console.WriteLine("Moyenne = " + moyenne.ToString("0.00"))
         Else
             Console.WriteLine("Aucune note saisie.")
         End If
