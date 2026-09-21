@@ -49,6 +49,35 @@ Module Module2
         cA.Raz()
         Console.WriteLine("Après Raz : " & cA.GetValeur())
 
+        ' Création de deux compteurs
+        Dim cB As New Compteur(50)
+        Dim cC As New Compteur(0)
+
+        ' Avant la copie
+        Console.WriteLine()
+        Console.WriteLine("Avant cC = cB :")
+        Console.WriteLine("cB = " & cB.GetValeur())
+        Console.WriteLine("cC = " & cC.GetValeur())
+
+        ' Copie de cB dans cC
+        cC = cB
+
+        ' Après la copie
+        Console.WriteLine()
+        Console.WriteLine("Après cC = cB :")
+        Console.WriteLine("cB = " & cB.GetValeur())
+        Console.WriteLine("cC = " & cC.GetValeur())
+
+        ' Modification de cB
+        cB.PlusUn()
+
+        ' Affichage après modification
+        Console.WriteLine()
+        Console.WriteLine("Après cB.PlusUn() :")
+        Console.WriteLine("cB = " & cB.GetValeur())
+        Console.WriteLine("cC = " & cC.GetValeur())
+
         Console.ReadLine()
     End Sub
+
 End Module
